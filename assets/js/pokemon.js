@@ -24,7 +24,7 @@ ready(function () {
 
     const pokemon = (function () {
 
-        const API_POKEMON = 'https://pokeapi.co/api/v2/pokemon?limit=10';
+        const API_POKEMON = 'https://pokeapi.co/api/v2/pokemon?limit=151';
 
         const DOM = {
             app_pokemon: d.getElementById('app-pokemon')
@@ -65,8 +65,9 @@ ready(function () {
                     <img src="${urlImage}" class="card-img img-fluid" alt="${pokemon.name}_${number}">
                     <div class="card-body">
                         <p class="card-text text-center">${pokemon.name}</p>
-                        <a href="#" data-open="detail" class="btn btn-primary">Abrir</a>
-                        <a href="#" data-attack="attack" class="btn btn-danger">Ataques</a>
+                        <div class="text-center">
+                            <a href="#" data-open="detail" class="btn btn-block btn-primary">Ver Detalle</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,7 +76,6 @@ ready(function () {
 
         function addEvents(){
             let buttonsDetail = DOM.app_pokemon.querySelectorAll('a[data-open="detail"]');
-            let buttonsAttack = DOM.app_pokemon.querySelectorAll('a[data-open="attack"]');
             
             buttonsDetail.forEach( (button) => {
                 button.addEventListener('click',function(e){
@@ -92,21 +92,6 @@ ready(function () {
                       })
                 })
             });
-
-
-            buttonsAttack.forEach((button) => {
-                buttonsAttack.addEventListener('click',function(e){
-                    Swal.fire({
-                        title: '',
-                        text: 'Modal with a custom image.',
-                        imageUrl: 'https://unsplash.it/400/200',
-                        imageWidth: 400,
-                        imageHeight: 200,
-                        imageAlt: 'Custom image',
-                      })
-                })
-            });
-
         }
 
         render();
