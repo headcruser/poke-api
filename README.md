@@ -7,7 +7,10 @@
 # Api Challange Pokemon
 
 Creacion de Sitio web para listado de pokemons, consumiendo una api de 
-[Pokemon](https://pokeapi.co/), para mostrar el detalle de un pokemon.
+[Pokemon](https://pokeapi.co/), para mostrar el detalle de un pokemon. 
+
+El proyecto se puede visualizar desde [Este Link]( https://headcruser.github.io/poke-api/)
+
 
 ## Estructura del proyecto
 
