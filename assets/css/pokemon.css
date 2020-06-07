@@ -1,4 +1,32 @@
-.blog-footer {
+
+body{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+img.poke--logo{
+   width: 7rem;
+   min-width: 1rem;
+}
+
+#poke-title {
+    padding-top: 90px;
+    min-height: 400px;
+    color: #ffffff;
+}
+
+.card img{
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.card:hover img{
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.poke--footer {
     padding: 2.5rem 0;
     color: #999;
     text-align: center;

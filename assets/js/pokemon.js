@@ -25,7 +25,7 @@ ready(function () {
     const pokemon = (function () {
 
         const DOM = {
-            app_pokemon: d.getElementById('app-pokemon'),
+            poke_list: d.getElementById('poke-list'),
             select_pokemon_number : d.getElementById('select-pokemon-number')
         };
             
@@ -65,13 +65,13 @@ ready(function () {
                 items += createCardPokemon(pokemon, index + 1);
             });
 
-            DOM.app_pokemon.insertAdjacentHTML('beforeend', items);
+            DOM.poke_list.insertAdjacentHTML('beforeend', items);
 
             addEvents();
         }
 
         function removeListPokemon(){
-            DOM.app_pokemon.innerHTML = null;
+            DOM.poke_list.innerHTML = null;
         }
 
         function createCardPokemon(pokemon, number) {
@@ -79,8 +79,8 @@ ready(function () {
             let urlImage = `https://pokeres.bastionbot.org/images/pokemon/${number}.png`;
 
             return `
-            <div class="col-md-4 mb-3">
-                <div class="card" data-number="${number}" data-name="${pokemon.name}" data-img="${urlImage}">
+            <div class="col-md-3 mb-2">
+                <div class="card w-100" data-number="${number}" data-name="${pokemon.name}" data-img="${urlImage}">
                     <img src="${urlImage}" class="card-img img-fluid" alt="${pokemon.name}_${number}">
                     <div class="card-body">
                         <p class="card-text text-center text-capitalize">#${number}  ${pokemon.name}</p>
@@ -94,7 +94,7 @@ ready(function () {
         }
 
         function addEvents() {
-            let buttonsDetail = DOM.app_pokemon.querySelectorAll('a[data-open="detail"]');
+            let buttonsDetail = DOM.poke_list.querySelectorAll('a[data-open="detail"]');
 
             buttonsDetail.forEach((button) => {
                 button.addEventListener('click', showDetailPokemon)
