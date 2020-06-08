@@ -121,9 +121,10 @@ ready(function () {
                 showCloseButton: true,
                 confirmButtonText: 'Aceptar',
                 imageAlt: `pokemon_no_${card.dataset.number}`,
+                background: theme.getColorHex(),
                 html: `
                 <p>${description.flavor_text}</p>
-                <table class="table table-striped">
+                <table class="table table-striped ${theme.isDarkMode()?'table-dark':''}">
                         <thead>
                         <tr>
                             <th scope="col">Caracteristica</th>
@@ -178,16 +179,16 @@ ready(function () {
                 localStorage.setItem('dark-mode', 'true');
                 DOM.poke_nav.classList.remove('bg-white');
                 DOM.poke_nav.classList.add('bg-dark');
+
             } else {
                 localStorage.setItem('dark-mode', 'false');
                 DOM.poke_nav.classList.remove('bg-dark');
                 DOM.poke_nav.classList.add('bg-white');
             }
         }
-       
-
+    
         function checkTheme() {
-            if(localStorage.getItem('dark-mode') === 'true'){
+            if( isDarkMode() ){
                 document.body.classList.add('dark');
                 DOM.switch_theme.classList.add('active');
                 DOM.poke_nav.classList.remove('bg-white');
@@ -200,7 +201,19 @@ ready(function () {
             }
         }
 
+        function isDarkMode(){
+            return localStorage.getItem('dark-mode') === 'true'
+        }
+
+        function getColorHex(){
+            return isDarkMode()?'#111111':'#FFFFFF'
+        }
+
         checkTheme();
+
+        return{
+            isDarkMode,getColorHex
+        }
 
     })()
 });
