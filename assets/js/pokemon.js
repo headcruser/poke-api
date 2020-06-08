@@ -160,5 +160,48 @@ ready(function () {
 
         render();
     })();
+
+    const theme = (function(){
+        const DOM = {
+            switch_theme: d.getElementById('switch-theme'),
+            poke_nav: d.getElementById('poke-nav')
+        }
+
+        DOM.switch_theme.addEventListener('click', toggleTheme );
+        
+
+        function toggleTheme(){
+            document.body.classList.toggle('dark');
+            DOM.switch_theme.classList.toggle('active');
+        
+            if(document.body.classList.contains('dark')){
+                localStorage.setItem('dark-mode', 'true');
+                DOM.poke_nav.classList.remove('bg-white');
+                DOM.poke_nav.classList.add('bg-dark');
+            } else {
+                localStorage.setItem('dark-mode', 'false');
+                DOM.poke_nav.classList.remove('bg-dark');
+                DOM.poke_nav.classList.add('bg-white');
+            }
+        }
+       
+
+        function checkTheme() {
+            if(localStorage.getItem('dark-mode') === 'true'){
+                document.body.classList.add('dark');
+                DOM.switch_theme.classList.add('active');
+                DOM.poke_nav.classList.remove('bg-white');
+                DOM.poke_nav.classList.add('bg-dark');
+            } else {
+                document.body.classList.remove('dark');
+                DOM.switch_theme.classList.remove('active');
+                DOM.poke_nav.classList.remove('bg-dark');
+                DOM.poke_nav.classList.add('bg-white');
+            }
+        }
+
+        checkTheme();
+
+    })()
 });
 

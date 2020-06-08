@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/pokemon.css">
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" id="poke-nav">
         <h5 class="my-0 mr-md-auto font-weight-normal">
             <a class="navbar-brand" href="#">
                 <img class="poke--logo" src="./assets/img/pokemon-logo.png" alt="Logotipo Pokemón">
@@ -27,6 +28,10 @@
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="index.html">Inicio</a>
         </nav>
+        <button type="button" class="poke-switch" id="switch-theme">
+            <span><i class="fas fa-sun"></i></span>
+            <span><i class="fas fa-moon"></i></span>
+        </button>
     </div>
 
     <section id="poke--title">
